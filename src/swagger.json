@@ -1,0 +1,79 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "RentalX Documentation",
+        "description": "This is an API Rent",
+        "version":"1.0.0",
+        "contact":{
+            "email":"contato.igoroliveira21@gmail.com"
+        }
+    },
+
+    "paths":{
+        "/categorias":{
+            "post":{
+                "tags":["Categorias"],
+                "summary": "Criar Categoria",
+                "description" : "Criando uma Categoria",
+                "requestBody" :{
+                    "content": {
+                        "application/json":{
+                            "schema" :{
+                                "type": "object",
+                                "properties":{
+                                    "name":{
+                                        "type": "string"
+                                    },
+                                    "descricao":{
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "name" : "Category name Example",
+                                    "descricao": "Category description Example"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"Categoria Criada!"},
+
+                    "500":{
+                        "description": "error: Categoria existente!"
+                    }
+                }
+            },
+            "get":{
+                "tags": ["Categorias"],
+                "summary": "lista de Categorias.",
+                "description":"listagem de todas as Categorias.",
+                "responses":{
+                    "200":{
+                        "description":"Sucesso",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "descricao":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }    
+            }
+        }
+        
+    }
+}
